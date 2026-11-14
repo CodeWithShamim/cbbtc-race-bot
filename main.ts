@@ -1,3 +1,13 @@
+/**
+ * Post-Impact Reversal Trading Bot for CBBTC/USDC on Solana.
+ *
+ * Strategy:
+ * When large market orders impact the thin liquidity pool, the price is pushed
+ * significantly below equilibrium. This bot waits for a sharp multi-bar drop
+ * (20-bar return <= -100 bps) and enters long with 50% cash to capture the
+ * subsequent mean-reversion bounce over a 60-bar holding horizon.
+ */
+
 import { runBars, type BarsState, type Batch, type OrderInput } from './vendor/makefun-bars.ts';
 
 /** Symbol to trade in the replay. */
